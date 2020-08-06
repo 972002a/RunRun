@@ -9,19 +9,26 @@ public class PlayerMoveMent : MonoBehaviour
     public float m_rotationSpeed = 2.0f;
     public float m_gravity = 9.8f;
 
+    //private
     public CharacterController m_controller;
     public bool m_isJump = false;
     public Vector3 m_playerVelocity;
     public bool isGround;
+    public PlayerState m_playerState;
+
     void Start()
     {
         m_controller = this.GetComponent<CharacterController>();
+        m_playerState = this.GetComponent<PlayerState>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+        if (m_playerState.m_playerState == e_State.None)
+        {
+            PlayerMove();
+        }
         
         PlayerRotate();
     }

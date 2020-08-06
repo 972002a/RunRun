@@ -10,7 +10,11 @@ public class Chess : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Map")
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.tag == "Map")
         {
             int index = Random.Range(0, m_Particles.Length);
            
@@ -23,10 +27,7 @@ public class Chess : MonoBehaviour
             Destroy(this.gameObject);
             
         }
-        else if(collision.gameObject.tag == "Player")
-        {
-            Destroy(this.gameObject);
-        }
+        
       
     }
 }
