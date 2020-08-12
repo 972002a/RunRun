@@ -1,14 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Utill : MonoBehaviour
 {
-    // Start is called before the first frame update
+  
+
+   
+    public static Utill Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+
+
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        
 
     }
 
